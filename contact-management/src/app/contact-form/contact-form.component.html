@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header">
+      {{ contact ? 'Edit' : 'Add' }} Contact
+    </div>
+    <div class="card-body">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" class="form-control" formControlName="firstName">
+          <div *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched" class="text-danger">
+            First Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" class="form-control" formControlName="lastName">
+          <div *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched" class="text-danger">
+            Last Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" class="form-control" formControlName="email">
+          <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger">
+            A valid email is required.
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="contactForm.invalid">
+          {{ contact ? 'Save' : 'Add' }} Contact
+        </button>
+      </form>
+    </div>
+  </div>
+  

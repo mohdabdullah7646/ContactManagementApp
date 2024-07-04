@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">
+      Contact List
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li *ngFor="let contact of contacts" class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              {{ contact.firstName }} {{ contact.lastName }}
+            </div>
+            <div>
+              <a class="btn btn-primary btn-sm" [routerLink]="['/contact', contact.id]">View</a>
+              <br>
+              <br>
+              <a class="btn btn-secondary btn-sm" style="background-color: green;" [routerLink]="['/edit', contact.id]">Edit</a>
+              <br>
+              <br>
+              <a class="btn btn-secondary btn-sm" style="background-color: red;" [routerLink]="['/delete', contact.id]">Delete</a>
+              <br>
+              <br>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

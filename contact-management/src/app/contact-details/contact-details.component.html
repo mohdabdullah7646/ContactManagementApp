@@ -1,0 +1,5 @@
+<div *ngIf="contact">
+    <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <a class="btn btn-primary" [routerLink]="['/edit', contact.id]">Edit</a>
+  </div>
